@@ -1,0 +1,7 @@
+data
+saved_models
+.vscode
+scripts/__pycache__
+scripts/__init__.py
+logs
+__pycache__

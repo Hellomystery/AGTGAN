@@ -1,0 +1,24 @@
+
+MODEL:
+  SKELETON_AUG:
+    PRETRAIN_GBA: ""
+  PRETRAIN_DIR: ""
+  PRETRAIN_ITER: 0
+SOLVER:
+  BASE_LR: 0.001 
+  MAX_ITER: 10000 
+  CHECKPOINT_PERIOD: 300
+  DECAY_ITER: 3000 
+  LAMBDA_G_G: 1.  #  生成器loss
+  LAMBDA_S: 0.   # 图像相似loss
+  LAMBDA_T: 1.0  #  TPS 丰富性loss
+  LAMBDA_A: 5.0  #  Affine丰富性loss
+  LAMBDA_Z: 1.0  # z重构loss
+  LAMBDA_I: 1.0  # 图像重构loss
+DATASETS:
+  NAME: 'cuneiform'
+  DIR: "./data/cuneiform"
+DATALOADER:
+  NUM_WORKERS: 8
+TEST:
+  PRETRAIN_G_Glyphy: ""
