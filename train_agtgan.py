@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--config_file', type=str, default="configs/OBCNET_e2e.yaml", help='path of the config file')
 
 
-def train_iter(real_A, real_B, G_AB, G_BA, D_A, D_B,G_Glyphy,D_Glyphy,optimizer_G_Glyphy,optimizer_D_Glyphy ,optimizer_G,optimizer_D_A, optimizer_D_B, valid, fake, cycle_weight):
+def train_iter(real_A, real_B, G_AB, G_BA, D_A, D_B, G_Glyphy, D_Glyphy, optimizer_G_Glyphy, optimizer_D_Glyphy, optimizer_G, optimizer_D_A, optimizer_D_B, valid, fake, cycle_weight):
 
     # log losses
     metrics = {}
@@ -47,9 +47,9 @@ def train_iter(real_A, real_B, G_AB, G_BA, D_A, D_B,G_Glyphy,D_Glyphy,optimizer_
     metrics['affine_diff'] = affine_diff.item()
     metrics['image_rec_loss'] = i_rec_loss.item()
     SNR = z_rec_loss / i_rec_loss  
-    if SNR < 1/6:
+    if SNR < 1/6: #log SNR < -6
         (-SNR).backward(retain_graph=True)
-    if SNR > 6:
+    if SNR > 6: #log SNR > 6
         SNR.backward(retain_graph=True)
     metrics['SNR'] = SNR.item()
     similar_loss = soomthL1(similar, similar_target.to(similar))
