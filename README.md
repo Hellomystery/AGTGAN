@@ -8,10 +8,6 @@
 
 #### 下载数据，并创建数据文件夹
 
-古文字数据的存放在数据服务器上，路径如下：
-甲骨文字模：/home/mdisk2/hhx/dataset/oracle_zimo.zip
-甲骨文拓片：/home/mdisk2/hhx/dataset/oracle_tapian.zip
-
 将数据下载解压后按照以下路径存放在项目文件夹下：
 甲骨文字模数据集：项目文件夹/data/oracle/trian/A or 项目文件夹/data/oracle/test/A
 甲骨文拓片数据集：项目文件夹/data/oracle/trian/B or 项目文件夹/data/oracle/test/B
